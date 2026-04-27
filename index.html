@@ -6,146 +6,33 @@
 <title>World Tours Booking</title>
 
 <style>
-body{
-    margin:0;
-    font-family:'Segoe UI', sans-serif;
-    background:#f8f9fa;
-}
-
-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 30px;
-    background:white;
-    box-shadow:0 2px 5px rgba(0,0,0,0.1);
-}
-
-header h1{
-    color:#ff385c;
-}
-
-.search-bar input{
-    padding:10px;
-    border-radius:20px;
-    border:1px solid #ccc;
-    margin:5px;
-}
-
-.hero{
-    background:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470');
-    height:300px;
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:white;
-    font-size:30px;
-    font-weight:bold;
-}
-
-.container{
-    padding:20px;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-
-.card{
-    background:white;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:scale(1.05);
-}
-
-.card img{
-    width:100%;
-    height:180px;
-    object-fit:cover;
-}
-
-.card-content{
-    padding:15px;
-}
-
-.price{
-    color:#ff385c;
-    font-weight:bold;
-}
-
-button{
-    background:#ff385c;
-    color:white;
-    border:none;
-    padding:10px;
-    border-radius:8px;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#e11d48;
-}
-
-.modal{
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.6);
-    justify-content:center;
-    align-items:center;
-}
-
-.modal-content{
-    background:white;
-    padding:20px;
-    border-radius:10px;
-    width:90%;
-    max-width:600px;
-}
-
-iframe{
-    border-radius:10px;
-    margin-top:10px;
-}
-
-.stories p{
-    background:white;
-    padding:10px;
-    border-radius:8px;
-    margin:5px 0;
-    box-shadow:0 2px 5px rgba(0,0,0,0.1);
-}
-
-footer{
-    text-align:center;
-    padding:15px;
-    background:#222;
-    color:white;
-}
+body{margin:0;font-family:'Segoe UI',sans-serif;background:#f8f9fa;}
+header{display:flex;justify-content:space-between;align-items:center;padding:15px 30px;background:white;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+header h1{color:#ff385c;}
+.search-bar input{padding:10px;border-radius:20px;border:1px solid #ccc;margin:5px;}
+.hero{background:#333;height:300px;display:flex;align-items:center;justify-content:center;color:white;font-size:30px;}
+.container{padding:20px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+.card{background:white;border-radius:15px;overflow:hidden;box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+.card img{width:100%;height:180px;object-fit:cover;}
+.card-content{padding:15px;}
+.price{color:#ff385c;font-weight:bold;}
+button{background:#ff385c;color:white;border:none;padding:10px;border-radius:8px;cursor:pointer;}
+.modal{display:none;position:fixed;width:100%;height:100%;background:rgba(0,0,0,0.6);justify-content:center;align-items:center;}
+.modal-content{background:white;padding:20px;border-radius:10px;width:90%;max-width:600px;}
+iframe{margin-top:10px;border-radius:10px;}
+footer{text-align:center;padding:15px;background:#222;color:white;}
 </style>
 
 <script>
 function openModal(country, video){
-    document.getElementById("modal").style.display="flex";
-    document.getElementById("modalText").innerHTML = country;
-    document.getElementById("modalVideo").src = video;
+document.getElementById("modal").style.display="flex";
+document.getElementById("modalText").innerHTML=country;
+document.getElementById("modalVideo").src=video;
 }
-
 function closeModal(){
-    document.getElementById("modal").style.display="none";
-    document.getElementById("modalVideo").src = "";
+document.getElementById("modal").style.display="none";
+document.getElementById("modalVideo").src="";
 }
 </script>
 
@@ -156,15 +43,13 @@ function closeModal(){
 <header>
 <h1>🌍 WorldBooking</h1>
 <div class="search-bar">
-<input type="text" placeholder="Where are you going?">
+<input type="text" placeholder="Destination">
 <input type="date">
 <input type="date">
 </div>
 </header>
 
-<div class="hero">
-Find your next destination ✈️
-</div>
+<div class="hero">Find your next destination ✈️</div>
 
 <div class="container">
 <h2>Popular Destinations</h2>
@@ -173,86 +58,50 @@ Find your next destination ✈️
 
 <!-- CHINA -->
 <div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/GreatWallBadaling.jpg">
+<img src="https://picsum.photos/400/300?random=1">
 <div class="card-content">
 <h3>China 🇨🇳</h3>
 <p>Airlines: Air China</p>
-<p>Food: Dumplings</p>
 <p class="price">$1200</p>
-<button onclick="openModal(
-'China Tour: Great Wall, Beijing, Shanghai',
-'https://www.youtube.com/embed/8nHBGFKLHZQ')">
-View
-</button>
+<button onclick="openModal('China Tour','https://www.youtube.com/embed/kJQP7kiw5Fk')">View</button>
 </div>
 </div>
 
 <!-- FRANCE -->
 <div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg">
+<img src="https://picsum.photos/400/300?random=2">
 <div class="card-content">
 <h3>France 🇫🇷</h3>
 <p>Airlines: Air France</p>
-<p>Food: Croissants</p>
 <p class="price">$1500</p>
-<button onclick="openModal(
-'France Tour: Paris, Eiffel Tower',
-'https://www.youtube.com/embed/Scxs7L0vhZ4')">
-View
-</button>
+<button onclick="openModal('France Tour','https://www.youtube.com/embed/3JZ_D3ELwOQ')">View</button>
 </div>
 </div>
 
 <!-- USA -->
 <div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Statue_of_Liberty_7.jpg">
+<img src="https://picsum.photos/400/300?random=3">
 <div class="card-content">
 <h3>USA 🇺🇸</h3>
 <p>Airlines: Delta</p>
-<p>Food: BBQ</p>
 <p class="price">$1000</p>
-<button onclick="openModal(
-'USA Tour: New York, Statue of Liberty',
-'https://www.youtube.com/embed/5Q0e8pG7R9U')">
-View
-</button>
+<button onclick="openModal('USA Tour','https://www.youtube.com/embed/L_jWHffIx5E')">View</button>
 </div>
 </div>
 
 </div>
-</div>
-
-<div class="container stories">
-<h2>Travel Stories</h2>
-
-<p>If I had visited China, I would have seen the Great Wall.</p>
-<p>If they had traveled earlier, they would have saved money.</p>
-<p>If we had booked the tour, we would have enjoyed more.</p>
-<p>If she had gone to France, she would have loved Paris.</p>
-<p>If he had visited the USA, he would have tried BBQ.</p>
-<p>If we had planned better, we would have explored more.</p>
-<p>If I had known, I would have joined the trip.</p>
-<p>If they had gone to Beijing, they would have taken photos.</p>
-<p>If we had stayed longer, we would have visited more places.</p>
-<p>If you had traveled with us, you would have had fun.</p>
-
 </div>
 
 <div id="modal" class="modal" onclick="closeModal()">
 <div class="modal-content" onclick="event.stopPropagation()">
 <h2>Tour Details</h2>
 <p id="modalText"></p>
-
-<iframe id="modalVideo" width="100%" height="300"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-allowfullscreen>
-</iframe>
-
+<iframe id="modalVideo" width="100%" height="300" allowfullscreen></iframe>
 </div>
 </div>
 
 <footer>
-<p>Deploy on GitHub Pages | Netlify | 000webhost</p>
+<p>Working 100% ✔</p>
 </footer>
 
 </body>
