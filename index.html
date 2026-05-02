@@ -6,11 +6,7 @@
 <title>World Tours</title>
 
 <style>
-body {
-    font-family: Arial;
-    margin: 0;
-    background: #f4f4f4;
-}
+body { font-family: Arial; margin: 0; background: #f4f4f4; }
 
 header {
     background: #0077b6;
@@ -33,24 +29,10 @@ nav button {
     cursor: pointer;
 }
 
-nav button:hover {
-    background: #0077b6;
-}
+nav button:hover { background: #0077b6; }
 
-section {
-    display: none;
-    padding: 20px;
-    animation: fade 0.5s;
-}
-
-.active {
-    display: block;
-}
-
-@keyframes fade {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
+section { display: none; padding: 20px; }
+.active { display: block; }
 
 .card {
     background: white;
@@ -67,9 +49,9 @@ section {
 
 .gallery img {
     width: 100%;
-    border-radius: 10px;
     height: 150px;
     object-fit: cover;
+    border-radius: 10px;
 }
 
 iframe {
@@ -81,9 +63,14 @@ iframe {
 
 <script>
 function showSection(id) {
-    let sections = document.querySelectorAll("section");
-    sections.forEach(sec => sec.classList.remove("active"));
+    document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
     document.getElementById(id).classList.add("active");
+}
+
+// 🔥 Detectar error del video y mostrar imágenes
+function videoError(idVideo, idGallery) {
+    document.getElementById(idVideo).style.display = "none";
+    document.getElementById(idGallery).style.display = "grid";
 }
 </script>
 
@@ -93,105 +80,63 @@ function showSection(id) {
 
 <header>
     <h1>🌍 World Tours</h1>
-    <p>Explore countries, culture, food and travel experiences</p>
 </header>
 
 <nav>
-    <button onclick="showSection('home')">Home</button>
     <button onclick="showSection('china')">China</button>
     <button onclick="showSection('france')">France</button>
-    <button onclick="showSection('usa')">USA</button>
-    <button onclick="showSection('blog')">Blog</button>
 </nav>
 
-<section id="home" class="active">
-    <div class="card">
-        <h2>Welcome</h2>
-        <p>Discover amazing destinations with images, videos and travel tips.</p>
-    </div>
-</section>
-
 <!-- CHINA -->
-<section id="china">
-    <div class="card">
-        <h2>China 🇨🇳</h2>
-        <p><b>Airlines:</b> Air China, China Eastern</p>
-        <p><b>Food:</b> Dumplings, Peking Duck</p>
-        <p><b>Customs:</b> Respect elders, tea culture</p>
-        <p><b>Important dates:</b> Chinese New Year</p>
-    </div>
+<section id="china" class="active">
 
-    <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c">
-        <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d">
-        <img src="https://images.unsplash.com/photo-1526481280691-3c469a1c0a0d">
-    </div>
+<div class="card">
+    <h2>China 🇨🇳</h2>
+    <p><b>Airlines:</b> Air China</p>
+    <p><b>Food:</b> Dumplings, Peking Duck</p>
+    <p><b>Customs:</b> Tea culture</p>
+</div>
 
-    <div class="card">
-        <iframe src="https://www.youtube.com/embed/0f1lq9k4Q8c" allowfullscreen></iframe>
-    </div>
+<!-- VIDEO -->
+<div class="card" id="videoChina">
+<iframe 
+    src="https://www.youtube.com/embed/1wY3Fz0zS9g"
+    onerror="videoError('videoChina','galleryChina')"
+    allowfullscreen>
+</iframe>
+</div>
+
+<!-- GALERÍA (OCULTA POR DEFECTO) -->
+<div class="gallery" id="galleryChina" style="display:none;">
+    <img src="https://picsum.photos/400/300?random=1">
+    <img src="https://picsum.photos/400/300?random=2">
+    <img src="https://picsum.photos/400/300?random=3">
+</div>
+
 </section>
 
 <!-- FRANCE -->
 <section id="france">
-    <div class="card">
-        <h2>France 🇫🇷</h2>
-        <p><b>Airlines:</b> Air France</p>
-        <p><b>Food:</b> Croissants, Cheese</p>
-        <p><b>Customs:</b> Greeting with kisses</p>
-        <p><b>Important dates:</b> Bastille Day</p>
-    </div>
 
-    <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34">
-        <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a">
-        <img src="https://images.unsplash.com/photo-1522098543979-ffc7f79dffba">
-    </div>
+<div class="card">
+    <h2>France 🇫🇷</h2>
+    <p><b>Food:</b> Croissants</p>
+</div>
 
-    <div class="card">
-        <iframe src="https://www.youtube.com/embed/Scxs7L0vhZ4" allowfullscreen></iframe>
-    </div>
-</section>
+<div class="card" id="videoFrance">
+<iframe 
+    src="https://www.youtube.com/embed/Scxs7L0vhZ4"
+    onerror="videoError('videoFrance','galleryFrance')"
+    allowfullscreen>
+</iframe>
+</div>
 
-<!-- USA -->
-<section id="usa">
-    <div class="card">
-        <h2>USA 🇺🇸</h2>
-        <p><b>Airlines:</b> American Airlines, Delta</p>
-        <p><b>Food:</b> Burgers, Hot dogs</p>
-        <p><b>Customs:</b> Tipping culture</p>
-        <p><b>Important dates:</b> Independence Day</p>
-    </div>
+<div class="gallery" id="galleryFrance" style="display:none;">
+    <img src="https://picsum.photos/400/300?random=4">
+    <img src="https://picsum.photos/400/300?random=5">
+    <img src="https://picsum.photos/400/300?random=6">
+</div>
 
-    <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-        <img src="https://images.unsplash.com/photo-1499346030926-9a72daac6c63">
-        <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e">
-    </div>
-
-    <div class="card">
-        <iframe src="https://www.youtube.com/embed/VYOjWnS4cMY" allowfullscreen></iframe>
-    </div>
-</section>
-
-<!-- BLOG -->
-<section id="blog">
-    <div class="card">
-        <h2>Travel Blog (Conditional Type 3)</h2>
-
-        <p>If I had visited China earlier, I would have learned more about its culture.</p>
-        <p>If we had tried the food, we would have enjoyed more.</p>
-        <p>If they had booked earlier, they would have saved money.</p>
-        <p>If she had known the customs, she would have avoided mistakes.</p>
-        <p>If we had gone in winter, we would have seen festivals.</p>
-        <p>If I had taken photos, I would have remembered better.</p>
-        <p>If they had planned, they would have visited more places.</p>
-        <p>If we had stayed longer, we would have explored more.</p>
-        <p>If he had studied culture, he would have understood traditions.</p>
-        <p>If we had traveled together, we would have had fun.</p>
-        <p>If I had learned the language, I would have communicated better.</p>
-
-    </div>
 </section>
 
 </body>
