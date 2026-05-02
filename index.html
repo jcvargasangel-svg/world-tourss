@@ -6,71 +6,66 @@
 <title>World Tours</title>
 
 <style>
-body { font-family: Arial; margin: 0; background: #f4f4f4; }
+body { font-family: Arial; margin:0; background:#f4f4f4; }
 
 header {
-    background: #0077b6;
-    color: white;
-    padding: 20px;
-    text-align: center;
+    background:#0077b6;
+    color:white;
+    padding:20px;
+    text-align:center;
 }
 
 nav {
-    display: flex;
-    justify-content: center;
-    background: #023e8a;
+    display:flex;
+    justify-content:center;
+    background:#023e8a;
+    flex-wrap:wrap;
 }
 
 nav button {
-    background: none;
-    border: none;
-    color: white;
-    padding: 15px;
-    cursor: pointer;
+    background:none;
+    border:none;
+    color:white;
+    padding:15px;
+    cursor:pointer;
 }
 
-nav button:hover { background: #0077b6; }
+nav button:hover { background:#0077b6; }
 
-section { display: none; padding: 20px; }
-.active { display: block; }
+section { display:none; padding:20px; }
+.active { display:block; }
 
 .card {
-    background: white;
-    padding: 15px;
-    margin: 15px 0;
-    border-radius: 10px;
+    background:white;
+    padding:15px;
+    margin:15px 0;
+    border-radius:10px;
 }
 
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-    gap: 10px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:10px;
 }
 
 .gallery img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    border-radius:10px;
 }
 
 iframe {
-    width: 100%;
-    height: 300px;
-    border-radius: 10px;
+    width:100%;
+    height:300px;
+    border-radius:10px;
 }
 </style>
 
 <script>
-function showSection(id) {
-    document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+function showSection(id){
+    document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
     document.getElementById(id).classList.add("active");
-}
-
-// 🔥 Detectar error del video y mostrar imágenes
-function videoError(idVideo, idGallery) {
-    document.getElementById(idVideo).style.display = "none";
-    document.getElementById(idGallery).style.display = "grid";
 }
 </script>
 
@@ -79,64 +74,133 @@ function videoError(idVideo, idGallery) {
 <body>
 
 <header>
-    <h1>🌍 World Tours</h1>
+<h1>🌍 World Tours</h1>
+<p>Explore cultures, food and amazing destinations</p>
 </header>
 
 <nav>
-    <button onclick="showSection('china')">China</button>
-    <button onclick="showSection('france')">France</button>
+<button onclick="showSection('home')">Home</button>
+<button onclick="showSection('china')">China</button>
+<button onclick="showSection('france')">France</button>
+<button onclick="showSection('usa')">USA</button>
+<button onclick="showSection('japan')">Japan</button>
+<button onclick="showSection('blog')">Blog</button>
 </nav>
 
+<!-- HOME -->
+<section id="home" class="active">
+<div class="card">
+<h2>Welcome</h2>
+<p>This website presents information about different countries, including airlines, food, customs, services and important dates. It also includes videos and reflections about travel experiences.</p>
+</div>
+</section>
+
 <!-- CHINA -->
-<section id="china" class="active">
+<section id="china">
+<div class="card">
+<h2>China 🇨🇳</h2>
+<p><b>Airlines:</b> Air China, China Eastern</p>
+<p><b>Services:</b> High-speed trains, luxury hotels</p>
+<p><b>Food:</b> Dumplings, Peking Duck</p>
+<p><b>Customs:</b> Respect elders, tea culture</p>
+<p><b>Important dates:</b> Chinese New Year</p>
+</div>
+
+<div class="gallery">
+<img src="https://picsum.photos/400/300?china1">
+<img src="https://picsum.photos/400/300?china2">
+<img src="https://picsum.photos/400/300?china3">
+</div>
 
 <div class="card">
-    <h2>China 🇨🇳</h2>
-    <p><b>Airlines:</b> Air China</p>
-    <p><b>Food:</b> Dumplings, Peking Duck</p>
-    <p><b>Customs:</b> Tea culture</p>
+<iframe src="https://www.youtube.com/embed/1wY3Fz0zS9g" allowfullscreen></iframe>
 </div>
-
-<!-- VIDEO -->
-<div class="card" id="videoChina">
-<iframe 
-    src="https://www.youtube.com/embed/1wY3Fz0zS9g"
-    onerror="videoError('videoChina','galleryChina')"
-    allowfullscreen>
-</iframe>
-</div>
-
-<!-- GALERÍA (OCULTA POR DEFECTO) -->
-<div class="gallery" id="galleryChina" style="display:none;">
-    <img src="https://picsum.photos/400/300?random=1">
-    <img src="https://picsum.photos/400/300?random=2">
-    <img src="https://picsum.photos/400/300?random=3">
-</div>
-
 </section>
 
 <!-- FRANCE -->
 <section id="france">
+<div class="card">
+<h2>France 🇫🇷</h2>
+<p><b>Airlines:</b> Air France</p>
+<p><b>Services:</b> Tourism, museums</p>
+<p><b>Food:</b> Croissants, cheese</p>
+<p><b>Customs:</b> Greeting with kisses</p>
+<p><b>Important dates:</b> Bastille Day</p>
+</div>
+
+<div class="gallery">
+<img src="https://picsum.photos/400/300?france1">
+<img src="https://picsum.photos/400/300?france2">
+<img src="https://picsum.photos/400/300?france3">
+</div>
 
 <div class="card">
-    <h2>France 🇫🇷</h2>
-    <p><b>Food:</b> Croissants</p>
+<iframe src="https://www.youtube.com/embed/Scxs7L0vhZ4" allowfullscreen></iframe>
+</div>
+</section>
+
+<!-- USA -->
+<section id="usa">
+<div class="card">
+<h2>USA 🇺🇸</h2>
+<p><b>Airlines:</b> Delta, American Airlines</p>
+<p><b>Services:</b> Theme parks, hotels</p>
+<p><b>Food:</b> Burgers, hot dogs</p>
+<p><b>Customs:</b> Tipping culture</p>
+<p><b>Important dates:</b> Independence Day</p>
 </div>
 
-<div class="card" id="videoFrance">
-<iframe 
-    src="https://www.youtube.com/embed/Scxs7L0vhZ4"
-    onerror="videoError('videoFrance','galleryFrance')"
-    allowfullscreen>
-</iframe>
+<div class="gallery">
+<img src="https://picsum.photos/400/300?usa1">
+<img src="https://picsum.photos/400/300?usa2">
+<img src="https://picsum.photos/400/300?usa3">
 </div>
 
-<div class="gallery" id="galleryFrance" style="display:none;">
-    <img src="https://picsum.photos/400/300?random=4">
-    <img src="https://picsum.photos/400/300?random=5">
-    <img src="https://picsum.photos/400/300?random=6">
+<div class="card">
+<iframe src="https://www.youtube.com/embed/VYOjWnS4cMY" allowfullscreen></iframe>
+</div>
+</section>
+
+<!-- JAPAN -->
+<section id="japan">
+<div class="card">
+<h2>Japan 🇯🇵</h2>
+<p><b>Airlines:</b> Japan Airlines</p>
+<p><b>Services:</b> Bullet trains</p>
+<p><b>Food:</b> Sushi, ramen</p>
+<p><b>Customs:</b> Bowing</p>
+<p><b>Important dates:</b> Cherry Blossom Festival</p>
 </div>
 
+<div class="gallery">
+<img src="https://picsum.photos/400/300?japan1">
+<img src="https://picsum.photos/400/300?japan2">
+<img src="https://picsum.photos/400/300?japan3">
+</div>
+
+<div class="card">
+<iframe src="https://www.youtube.com/embed/0nTO4zSEpOs" allowfullscreen></iframe>
+</div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+<div class="card">
+<h2>Travel Reflection - Conditional Type 3</h2>
+
+<p>If I had visited China, I would have learned about its traditions.</p>
+<p>If we had traveled earlier, we would have saved money.</p>
+<p>If they had tried the food, they would have enjoyed it.</p>
+<p>If she had known the customs, she would have avoided mistakes.</p>
+<p>If we had gone to France, we would have seen the Eiffel Tower.</p>
+<p>If I had visited the USA, I would have explored big cities.</p>
+<p>If they had planned better, they would have visited more places.</p>
+<p>If we had stayed longer, we would have enjoyed more experiences.</p>
+<p>If he had studied the culture, he would have understood traditions.</p>
+<p>If we had traveled together, we would have had more fun.</p>
+<p>If I had learned the language, I would have communicated better.</p>
+
+</div>
 </section>
 
 </body>
