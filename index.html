@@ -3,142 +3,87 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>World Tours Booking</title>
+<title>World Tours</title>
 
 <style>
-body{
-    margin:0;
-    font-family:'Segoe UI', sans-serif;
-    background:#f8f9fa;
+body {
+    font-family: Arial;
+    margin: 0;
+    background: #f4f4f4;
 }
 
-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 30px;
-    background:white;
-    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+header {
+    background: #0077b6;
+    color: white;
+    padding: 20px;
+    text-align: center;
 }
 
-header h1{
-    color:#ff385c;
+nav {
+    display: flex;
+    justify-content: center;
+    background: #023e8a;
 }
 
-.search-bar input{
-    padding:10px;
-    border-radius:20px;
-    border:1px solid #ccc;
-    margin:5px;
+nav button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
 }
 
-.hero{
-    background:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470');
-    height:300px;
-    background-size:cover;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:white;
-    font-size:30px;
-    font-weight:bold;
+nav button:hover {
+    background: #0077b6;
 }
 
-.container{
-    padding:20px;
+section {
+    display: none;
+    padding: 20px;
+    animation: fade 0.5s;
 }
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
+.active {
+    display: block;
 }
 
-.card{
-    background:white;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-    transition:0.3s;
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 
-.card:hover{
-    transform:scale(1.03);
+.card {
+    background: white;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px;
 }
 
-.card img{
-    width:100%;
-    height:180px;
-    object-fit:cover;
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 10px;
 }
 
-.card-content{
-    padding:15px;
+.gallery img {
+    width: 100%;
+    border-radius: 10px;
+    height: 150px;
+    object-fit: cover;
 }
 
-.price{
-    color:#ff385c;
-    font-weight:bold;
-}
-
-button{
-    background:#ff385c;
-    color:white;
-    border:none;
-    padding:10px;
-    border-radius:8px;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#e11d48;
-}
-
-/* MODAL */
-.modal{
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.6);
-    justify-content:center;
-    align-items:center;
-}
-
-.modal-content{
-    background:white;
-    padding:20px;
-    border-radius:10px;
-    width:80%;
-    max-width:600px;
-}
-
-/* VIDEO */
-iframe{
-    border-radius:10px;
-    margin-top:10px;
-}
-
-footer{
-    text-align:center;
-    padding:15px;
-    background:#222;
-    color:white;
+iframe {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
 }
 </style>
 
 <script>
-function openModal(country, video){
-    document.getElementById("modal").style.display="flex";
-    document.getElementById("modalText").innerHTML = country;
-    document.getElementById("modalVideo").src = video;
-}
-
-function closeModal(){
-    document.getElementById("modal").style.display="none";
-    document.getElementById("modalVideo").src = "";
+function showSection(id) {
+    let sections = document.querySelectorAll("section");
+    sections.forEach(sec => sec.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
 }
 </script>
 
@@ -147,95 +92,107 @@ function closeModal(){
 <body>
 
 <header>
-<h1>🌍 WorldBooking</h1>
-<div class="search-bar">
-<input type="text" placeholder="Where are you going?">
-<input type="date">
-<input type="date">
-</div>
+    <h1>🌍 World Tours</h1>
+    <p>Explore countries, culture, food and travel experiences</p>
 </header>
 
-<div class="hero">
-Find your next destination ✈️
-</div>
+<nav>
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('china')">China</button>
+    <button onclick="showSection('france')">France</button>
+    <button onclick="showSection('usa')">USA</button>
+    <button onclick="showSection('blog')">Blog</button>
+</nav>
 
-<div class="container">
-<h2>Popular Destinations</h2>
-
-<div class="grid">
+<section id="home" class="active">
+    <div class="card">
+        <h2>Welcome</h2>
+        <p>Discover amazing destinations with images, videos and travel tips.</p>
+    </div>
+</section>
 
 <!-- CHINA -->
-<div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/10/GreatWall_2004_Summer_4.jpg">
-<div class="card-content">
-<h3>China 🇨🇳</h3>
-<p>Airlines: Air China</p>
-<p>Food: Dumplings</p>
-<p class="price">$1200</p>
-<button onclick="openModal('China Tour: Great Wall, Beijing, Shanghai','https://www.youtube.com/embed/8nHBGFKLHZQ')">View</button>
-</div>
-</div>
+<section id="china">
+    <div class="card">
+        <h2>China 🇨🇳</h2>
+        <p><b>Airlines:</b> Air China, China Eastern</p>
+        <p><b>Food:</b> Dumplings, Peking Duck</p>
+        <p><b>Customs:</b> Respect elders, tea culture</p>
+        <p><b>Important dates:</b> Chinese New Year</p>
+    </div>
+
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c">
+        <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d">
+        <img src="https://images.unsplash.com/photo-1526481280691-3c469a1c0a0d">
+    </div>
+
+    <div class="card">
+        <iframe src="https://www.youtube.com/embed/0f1lq9k4Q8c" allowfullscreen></iframe>
+    </div>
+</section>
 
 <!-- FRANCE -->
-<div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg">
-<div class="card-content">
-<h3>France 🇫🇷</h3>
-<p>Airlines: Air France</p>
-<p>Food: Croissants</p>
-<p class="price">$1500</p>
-<button onclick="openModal('France Tour: Paris, Eiffel Tower','https://www.youtube.com/embed/Scxs7L0vhZ4')">View</button>
-</div>
-</div>
+<section id="france">
+    <div class="card">
+        <h2>France 🇫🇷</h2>
+        <p><b>Airlines:</b> Air France</p>
+        <p><b>Food:</b> Croissants, Cheese</p>
+        <p><b>Customs:</b> Greeting with kisses</p>
+        <p><b>Important dates:</b> Bastille Day</p>
+    </div>
+
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34">
+        <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a">
+        <img src="https://images.unsplash.com/photo-1522098543979-ffc7f79dffba">
+    </div>
+
+    <div class="card">
+        <iframe src="https://www.youtube.com/embed/Scxs7L0vhZ4" allowfullscreen></iframe>
+    </div>
+</section>
 
 <!-- USA -->
-<div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Statue_of_Liberty_7.jpg">
-<div class="card-content">
-<h3>USA 🇺🇸</h3>
-<p>Airlines: Delta</p>
-<p>Food: BBQ</p>
-<p class="price">$1000</p>
-<button onclick="openModal('USA Tour: New York, Statue of Liberty','https://www.youtube.com/embed/5Q0e8pG7R9U')">View</button>
-</div>
-</div>
+<section id="usa">
+    <div class="card">
+        <h2>USA 🇺🇸</h2>
+        <p><b>Airlines:</b> American Airlines, Delta</p>
+        <p><b>Food:</b> Burgers, Hot dogs</p>
+        <p><b>Customs:</b> Tipping culture</p>
+        <p><b>Important dates:</b> Independence Day</p>
+    </div>
 
-</div>
-</div>
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+        <img src="https://images.unsplash.com/photo-1499346030926-9a72daac6c63">
+        <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e">
+    </div>
 
-<!-- CONDITIONAL TYPE 3 -->
-<div class="container">
-<h2>Travel Stories</h2>
+    <div class="card">
+        <iframe src="https://www.youtube.com/embed/VYOjWnS4cMY" allowfullscreen></iframe>
+    </div>
+</section>
 
-<p>If I had visited China, I would have seen the Great Wall.</p>
-<p>If they had traveled earlier, they would have saved money.</p>
-<p>If we had booked the tour, we would have enjoyed more.</p>
-<p>If she had gone to France, she would have loved Paris.</p>
-<p>If he had visited the USA, he would have tried BBQ.</p>
-<p>If we had planned better, we would have explored more.</p>
-<p>If I had known, I would have joined the trip.</p>
-<p>If they had gone to Beijing, they would have taken photos.</p>
-<p>If we had stayed longer, we would have visited more places.</p>
-<p>If you had traveled with us, you would have had fun.</p>
+<!-- BLOG -->
+<section id="blog">
+    <div class="card">
+        <h2>Travel Blog (Conditional Type 3)</h2>
 
-</div>
+        <p>If I had visited China earlier, I would have learned more about its culture.</p>
+        <p>If we had tried the food, we would have enjoyed more.</p>
+        <p>If they had booked earlier, they would have saved money.</p>
+        <p>If she had known the customs, she would have avoided mistakes.</p>
+        <p>If we had gone in winter, we would have seen festivals.</p>
+        <p>If I had taken photos, I would have remembered better.</p>
+        <p>If they had planned, they would have visited more places.</p>
+        <p>If we had stayed longer, we would have explored more.</p>
+        <p>If he had studied culture, he would have understood traditions.</p>
+        <p>If we had traveled together, we would have had fun.</p>
+        <p>If I had learned the language, I would have communicated better.</p>
 
-<!-- MODAL CON VIDEO -->
-<div id="modal" class="modal" onclick="closeModal()">
-<div class="modal-content" onclick="event.stopPropagation()">
-<h2>Tour Details</h2>
-<p id="modalText"></p>
-
-<iframe id="modalVideo" width="100%" height="300"
-frameborder="0"
-allowfullscreen></iframe>
-
-</div>
-</div>
-
-<footer>
-<p>Deploy on GitHub Pages | Netlify | 000webhost</p>
-</footer>
+    </div>
+</section>
 
 </body>
 </html>
