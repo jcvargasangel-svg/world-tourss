@@ -33,7 +33,7 @@ nav button {
 nav button:hover { background:#0077b6; }
 
 section { display:none; padding:20px; }
-.active { display:block; }
+section.active { display:block; }
 
 .card {
     background:white;
@@ -64,7 +64,8 @@ iframe {
 
 <script>
 function showSection(id){
-    document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+    let sections = document.querySelectorAll("section");
+    sections.forEach(sec => sec.classList.remove("active"));
     document.getElementById(id).classList.add("active");
 }
 </script>
@@ -91,7 +92,7 @@ function showSection(id){
 <section id="home" class="active">
 <div class="card">
 <h2>Welcome</h2>
-<p>This website presents information about different countries, including airlines, food, customs, services and important dates. It also includes videos and reflections about travel experiences.</p>
+<p>This website presents information about different countries, including airlines, food, customs, services and important dates. It also includes blogs and videos.</p>
 </div>
 </section>
 
@@ -113,23 +114,8 @@ function showSection(id){
 </div>
 
 <div class="card">
-
-<iframe 
-src="https://www.youtube.com/embed/5NxDViBy9hs"
-title="China Travel 4K"
-frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-allowfullscreen>
-</iframe>
-
-<p>This video shows important places, culture, food and tourist attractions in China.</p>
-
-<p>If the video does not load, click here:</p>
-
-<a href="https://www.youtube.com/watch?v=5NxDViBy9hs" target="_blank">
-▶ Watch China Travel Video
-</a>
-
+<iframe src="https://www.youtube.com/embed/5NxDViBy9hs" allowfullscreen></iframe>
+<p><a href="https://www.youtube.com/watch?v=5NxDViBy9hs" target="_blank">▶ Watch video</a></p>
 </div>
 </section>
 
@@ -138,7 +124,7 @@ allowfullscreen>
 <div class="card">
 <h2>France 🇫🇷</h2>
 <p><b>Airlines:</b> Air France</p>
-<p><b>Services:</b> Tourism, museums</p>
+<p><b>Services:</b> Museums, tourism</p>
 <p><b>Food:</b> Croissants, cheese</p>
 <p><b>Customs:</b> Greeting with kisses</p>
 <p><b>Important dates:</b> Bastille Day</p>
@@ -152,6 +138,7 @@ allowfullscreen>
 
 <div class="card">
 <iframe src="https://www.youtube.com/embed/Scxs7L0vhZ4" allowfullscreen></iframe>
+<p><a href="https://www.youtube.com/watch?v=Scxs7L0vhZ4" target="_blank">▶ Watch video</a></p>
 </div>
 </section>
 
@@ -159,8 +146,8 @@ allowfullscreen>
 <section id="usa">
 <div class="card">
 <h2>USA 🇺🇸</h2>
-<p><b>Airlines:</b> Delta, American Airlines</p>
-<p><b>Services:</b> Theme parks, hotels</p>
+<p><b>Airlines:</b> American Airlines, Delta</p>
+<p><b>Services:</b> Hotels, theme parks</p>
 <p><b>Food:</b> Burgers, hot dogs</p>
 <p><b>Customs:</b> Tipping culture</p>
 <p><b>Important dates:</b> Independence Day</p>
@@ -174,6 +161,7 @@ allowfullscreen>
 
 <div class="card">
 <iframe src="https://www.youtube.com/embed/VYOjWnS4cMY" allowfullscreen></iframe>
+<p><a href="https://www.youtube.com/watch?v=VYOjWnS4cMY" target="_blank">▶ Watch video</a></p>
 </div>
 </section>
 
@@ -196,20 +184,21 @@ allowfullscreen>
 
 <div class="card">
 <iframe src="https://www.youtube.com/embed/0nTO4zSEpOs" allowfullscreen></iframe>
+<p><a href="https://www.youtube.com/watch?v=0nTO4zSEpOs" target="_blank">▶ Watch video</a></p>
 </div>
 </section>
 
 <!-- BLOG -->
 <section id="blog">
 <div class="card">
-<h2>Travel Reflection - Conditional Type 3</h2>
+<h2>Conditional Type 3 Blog</h2>
 
 <p>If I had visited China, I would have learned about its traditions.</p>
 <p>If we had traveled earlier, we would have saved money.</p>
 <p>If they had tried the food, they would have enjoyed it.</p>
 <p>If she had known the customs, she would have avoided mistakes.</p>
 <p>If we had gone to France, we would have seen the Eiffel Tower.</p>
-<p>If I had visited the USA, I would have explored big cities.</p>
+<p>If I had visited the USA, I would have explored cities.</p>
 <p>If they had planned better, they would have visited more places.</p>
 <p>If we had stayed longer, we would have enjoyed more experiences.</p>
 <p>If he had studied the culture, he would have understood traditions.</p>
